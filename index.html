@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#E65F52" />
-  <meta name="description" content="Atendimento rápido e humanizado. Clique e fale no WhatsApp agora." />
-  <title>Portal | Atendimento via WhatsApp</title>
+  <meta name="description" content="Portal H Costa: emissão de boletos, renegociação e atendimento rápido via WhatsApp." />
+  <title>Portal H Costa | Atendimento via WhatsApp</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -83,7 +83,7 @@
       display:flex;
       align-items:center;
       gap: 12px;
-      min-width: 190px;
+      min-width: 220px;
     }
 
     /* Logo com P */
@@ -156,6 +156,7 @@
       color: #fff;
       box-shadow: 0 18px 50px rgba(230,95,82,.25);
     }
+    .btn.small{ padding: 10px 12px; border-radius: 999px; }
 
     .icon-btn{ width: 44px; height: 44px; padding: 0; border-radius: 14px; }
 
@@ -185,7 +186,7 @@
     .hero-grid{
       margin-top: 18px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 18px;
       align-items: start;
     }
@@ -201,13 +202,61 @@
       margin: 0 0 18px;
       color: var(--muted);
       font-size: clamp(15px, 1.55vw, 18px);
-      max-width: 58ch;
+      max-width: 60ch;
     }
     .cta-row{
       display:flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items:center;
+    }
+
+    .section{ padding: clamp(26px, 4.2vw, 52px) 0; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+    }
+
+    .tile{
+      border-radius: var(--radius2);
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+    .tile strong{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 26px;
+      height: 26px;
+      border-radius: 10px;
+      border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--stroke));
+      background: rgba(230,95,82,.10);
+      box-shadow: 0 10px 18px rgba(230,95,82,.10);
+      font-weight: 900;
+      color: color-mix(in oklab, var(--ink) 74%, var(--primary));
+    }
+    .tile p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .side-card{
@@ -230,32 +279,6 @@
       letter-spacing: -0.02em;
     }
     .mini span{ color: var(--muted); font-size: 13px; }
-
-    .section{ padding: clamp(28px, 4.5vw, 54px) 0; }
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 12px;
-    }
-    .tile{
-      border-radius: var(--radius2);
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
-      box-shadow: var(--shadow2);
-      padding: 14px;
-    }
-    .tile strong{
-      display:block;
-      font-family: Manrope, Inter, sans-serif;
-      letter-spacing: -0.01em;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-    .tile p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
 
     .how{
       border-radius: var(--radius);
@@ -387,7 +410,7 @@
 
     @media (max-width: 980px){
       .hero-grid{ grid-template-columns: 1fr; }
-      .grid3{ grid-template-columns: 1fr; }
+      .grid3, .grid2{ grid-template-columns: 1fr; }
     }
 
     /* =========================
@@ -436,9 +459,7 @@
       align-items:center;
       justify-content: flex-end;
     }
-    .btn.ghost{
-      background: transparent;
-    }
+    .btn.ghost{ background: transparent; }
     .cookie-link{
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -561,8 +582,8 @@
         <a class="brand" href="#inicio" aria-label="Início">
           <div class="logo" aria-hidden="true"><span>P</span></div>
           <div>
-            <strong id="brandName">Portal Atendimento</strong>
-            <span>Atendimento via WhatsApp</span>
+            <strong id="brandName">Portal H Costa</strong>
+            <span>Boletos • Renegociação • Atendimento</span>
           </div>
         </a>
 
@@ -588,56 +609,58 @@
   <main id="inicio">
     <section class="hero">
       <div class="container">
-        <span class="kicker reveal"><span class="dot" aria-hidden="true"></span> clique e resolva agora</span>
+        <span class="kicker reveal"><span class="dot" aria-hidden="true"></span> portal h costa</span>
 
         <div class="hero-grid">
           <div class="reveal">
-            <h1>Atendimento rápido, direto e humanizado</h1>
+            <h1>Emissão de boletos, renegociações e muito mais em um só lugar</h1>
             <p class="lead">
-              Sem formulário longo. Sem enrolação. Você chama no WhatsApp e a gente te direciona imediatamente.
+              No Portal H Costa, você resolve tudo de forma simples: solicite 2ª via, renegocie parcelas, tire dúvidas e receba orientação rápida.
+              Clique e fale com nossa equipe no WhatsApp.
             </p>
 
             <div class="cta-row">
               <a class="btn primary" id="ctaHero" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-              <button class="btn js-only" id="copyMsg" type="button">Copiar mensagem</button>
+              <button class="btn js-only" id="copyMsg" type="button">H Costa</button>
             </div>
 
             <div class="section" style="padding-bottom:0;">
               <div class="grid3">
                 <div class="tile">
-                  <strong>Resposta rápida</strong>
-                  <p>Você chama e já recebe a orientação inicial.</p>
+                  <strong><span class="pill">✓</span>Atendimento ágil</strong>
+                  <p>Você chama e já recebe o direcionamento certo.</p>
                 </div>
                 <div class="tile">
-                  <strong>Processo simples</strong>
-                  <p>Somente o essencial, do jeito certo.</p>
+                  <strong><span class="pill">◎</span>Sem burocracia</strong>
+                  <p>Processo simples, com o essencial para resolver.</p>
                 </div>
                 <div class="tile">
-                  <strong>Atendimento humano</strong>
-                  <p>Sem robô. Sem confusão. Sem “copiar e colar”.</p>
+                  <strong><span class="pill">⟡</span>Orientação clara</strong>
+                  <p>Equipe preparada para te ajudar do começo ao fim.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <aside class="side-card reveal" aria-label="Resumo rápido">
+          <aside class="side-card reveal" aria-label="Atalhos rápidos">
             <div class="side-pad">
               <div class="mini">
+                <b>Atalhos rápidos</b>
+                <span>Escolha o que você precisa e já envie a mensagem pronta.</span>
+              </div>
+
+              <div class="grid2" style="gap:10px;">
+                <a class="btn small" id="waBoleto" href="#" target="_blank" rel="noopener">📄 2ª via boleto</a>
+                <a class="btn small" id="waReneg" href="#" target="_blank" rel="noopener">🤝 Renegociar</a>
+                <a class="btn small" id="waQuitacao" href="#" target="_blank" rel="noopener">✅ Quitação</a>
+                <a class="btn small" id="waDuvidas" href="#" target="_blank" rel="noopener">💬 Dúvidas</a>
+              </div>
+
+              <div class="mini">
                 <b>Como funciona</b>
-                <span>3 passos e você já começa a resolver.</span>
+                <span>Você chama no WhatsApp e a gente te orienta no passo a passo.</span>
               </div>
-              <div class="mini">
-                <b>1) Você chama</b>
-                <span>WhatsApp com uma frase simples.</span>
-              </div>
-              <div class="mini">
-                <b>2) Nós entendemos</b>
-                <span>Triagem e direcionamento.</span>
-              </div>
-              <div class="mini">
-                <b>3) Você segue o caminho</b>
-                <span>Com orientação objetiva.</span>
-              </div>
+
               <a class="btn primary" id="ctaSide" href="#" target="_blank" rel="noopener">Quero atendimento</a>
             </div>
           </aside>
@@ -645,16 +668,48 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="servicos">
       <div class="container">
         <div class="how reveal">
           <div>
-            <h2>Pronto pra falar agora?</h2>
-            <p>É só clicar no botão e mandar a mensagem. A gente responde e direciona seu atendimento.</p>
+            <h2>O que você resolve no Portal H Costa</h2>
+            <p>Direto ao ponto, sem excesso de informação: escolha sua necessidade e chame no WhatsApp.</p>
           </div>
           <div class="cta-row">
-            <a class="btn primary" id="ctaMid" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="btn primary" id="ctaMid" href="#" target="_blank" rel="noopener">Falar agora</a>
             <a class="btn" href="#duvidas">Dúvidas rápidas</a>
+          </div>
+        </div>
+
+        <div class="section" style="padding-bottom:0;">
+          <div class="grid3 reveal">
+            <div class="tile">
+              <strong><span class="pill">1</span> Emissão / 2ª via de boletos</strong>
+              <p>Solicite a 2ª via e receba orientação para pagamento.</p>
+            </div>
+            <div class="tile">
+              <strong><span class="pill">2</span> Renegociação de parcelas</strong>
+              <p>Simule e negocie condições que caibam no seu momento.</p>
+            </div>
+            <div class="tile">
+              <strong><span class="pill">3</span> Quitação e antecipação</strong>
+              <p>Consulte opções de quitação e antecipação com suporte.</p>
+            </div>
+          </div>
+
+          <div class="grid3 reveal" style="margin-top:12px;">
+            <div class="tile">
+              <strong><span class="pill">4</span> Atualização de dados</strong>
+              <p>Confirme informações e agilize seu atendimento.</p>
+            </div>
+            <div class="tile">
+              <strong><span class="pill">5</span> Suporte e dúvidas</strong>
+              <p>Fale com um atendente e tire dúvidas rapidamente.</p>
+            </div>
+            <div class="tile">
+              <strong><span class="pill">+</span> E muito mais</strong>
+              <p>Se não viu sua opção, chama que a gente direciona.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -664,16 +719,16 @@
       <div class="container">
         <div style="display:grid; gap:10px;" class="reveal">
           <details>
-            <summary>O que eu preciso mandar no WhatsApp?</summary>
-            <div>Seu nome e um resumo do que precisa. Se precisar de algo específico, a gente pede depois.</div>
+            <summary>O que eu preciso enviar para solicitar boleto/2ª via?</summary>
+            <div>Seu nome e um dado de identificação do contrato (ex: CPF ou número do contrato, se tiver). Se não tiver, chama mesmo assim.</div>
           </details>
           <details>
-            <summary>Vocês respondem rápido?</summary>
-            <div>Geralmente sim. Se estiver em horário comercial, costuma ser bem ágil.</div>
+            <summary>Renegociação: como funciona?</summary>
+            <div>Você explica sua situação, e nossa equipe te apresenta as possibilidades e orienta no passo a passo.</div>
           </details>
           <details>
             <summary>Posso começar agora?</summary>
-            <div>Sim. Clique em “Chamar no WhatsApp” e já vai com a mensagem pronta.</div>
+            <div>Sim. Clique em “Falar no WhatsApp” ou use um dos atalhos rápidos.</div>
           </details>
         </div>
       </div>
@@ -684,8 +739,8 @@
         <div class="brand" style="min-width:auto;">
           <div class="logo" aria-hidden="true" style="width:38px;height:38px;"><span>P</span></div>
           <div>
-            <strong>Portal Atendimento</strong>
-            <span style="color:var(--muted); font-size:12px;">Atendimento via WhatsApp</span>
+            <strong>Portal H Costa</strong>
+            <span style="color:var(--muted); font-size:12px;">Emissão de boletos • Renegociações • Atendimento</span>
           </div>
         </div>
         <small>
@@ -718,13 +773,11 @@
     </button>
   </div>
 
-  <!-- =========================
-       COOKIES: Banner + Preferências
-       ========================= -->
+  <!-- Cookies -->
   <div class="cookie-bar js-only" id="cookieBar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
     <div class="cookie-row">
       <div class="cookie-text">
-        <b>Cookies 🍪</b>
+        <b>Cookies</b>
         <p>
           Usamos cookies para melhorar sua experiência e entender o que funciona melhor.
           Você pode aceitar, recusar ou ajustar suas preferências.
@@ -794,7 +847,7 @@
           <div class="top">
             <div>
               <b>Marketing</b>
-              <p>Ajuda a exibir anúncios e campanhas mais relevantes.</p>
+              <p>Ajuda a exibir campanhas mais relevantes.</p>
             </div>
             <label class="switch">
               <input id="ckMarketing" type="checkbox" />
@@ -816,9 +869,15 @@
 
   <script>
     // ====== EDITAR AQUI ======
-    const BRAND_NAME = "Portal Atendimento";
+    const BRAND_NAME = "Portal H Costa";
     const WHATSAPP_NUMBER = "5511912345678"; // DDI+DDD+número (só números)
-    const DEFAULT_MESSAGE = "Olá! Vim pelo site e gostaria de atendimento. Pode me ajudar, por favor?";
+    const DEFAULT_MESSAGE = "Olá! Vim pelo Portal H Costa e gostaria de atendimento. Pode me ajudar, por favor?";
+
+    // Mensagens por atalho (H Costa)
+    const MSG_BOLETO   = "Olá! Vim pelo Portal H Costa e gostaria de solicitar a 2ª via do boleto. Pode me orientar?";
+    const MSG_RENEG    = "Olá! Vim pelo Portal H Costa e quero renegociar minhas parcelas. Pode me ajudar?";
+    const MSG_QUITACAO = "Olá! Vim pelo Portal H Costa e gostaria de informações para quitação/antecipação. Pode me orientar?";
+    const MSG_DUVIDAS  = "Olá! Vim pelo Portal H Costa e estou com dúvidas sobre meu contrato/parcelas. Pode me ajudar?";
 
     // ===== Helpers =====
     const $ = (q, el=document) => el.querySelector(q);
@@ -829,11 +888,21 @@
     $("#year").textContent = new Date().getFullYear();
     $("#brandName").textContent = BRAND_NAME;
 
-    // ===== Bind links WhatsApp =====
+    // ===== Bind links WhatsApp (default) =====
     ["ctaTop","ctaHero","ctaSide","ctaMid","fabWhats"].forEach(id => {
       const el = document.getElementById(id);
-      if(el) el.href = waUrl();
+      if(el) el.href = waUrl(DEFAULT_MESSAGE);
     });
+
+    // ===== Bind atalhos (mensagem pronta) =====
+    const bindWa = (id, msg) => {
+      const el = document.getElementById(id);
+      if(el) el.href = waUrl(msg);
+    };
+    bindWa("waBoleto", MSG_BOLETO);
+    bindWa("waReneg", MSG_RENEG);
+    bindWa("waQuitacao", MSG_QUITACAO);
+    bindWa("waDuvidas", MSG_DUVIDAS);
 
     // ===== Toast =====
     const toast = $("#toast");
@@ -901,22 +970,19 @@
         return null;
       }
     }
-
     function setConsent(consent){
       localStorage.setItem(COOKIE_KEY, JSON.stringify(consent));
     }
-
     function applyConsent(consent){
       // Preferências: pode salvar tema
       if(consent?.prefs){
         const savedTheme = localStorage.getItem("theme");
         if(savedTheme) setTheme(savedTheme);
       }else{
-        // sem prefs, não persiste tema; mantém o atual sem salvar
+        // sem prefs: não persiste tema
+        localStorage.removeItem("theme");
       }
 
-      // Analíticos/Marketing: aqui você integraria scripts (GA, pixel etc.)
-      // Exemplo de "flag" para seu código:
       window.__CONSENT__ = {
         necessary: true,
         prefs: !!consent?.prefs,
@@ -925,11 +991,6 @@
       };
     }
 
-    function hasDecision(){
-      return !!getConsent();
-    }
-
-    // Banner/modal
     const cookieBar = $("#cookieBar");
     const cookieModal = $("#cookieModal");
     const openCookies = $("#openCookies");
@@ -962,12 +1023,11 @@
 
     function syncModalWithConsent(){
       const c = getConsent();
-      ckPrefs.checked = c ? !!c.prefs : true;      // padrão: prefs ON
+      ckPrefs.checked = c ? !!c.prefs : true;
       ckAnalytics.checked = c ? !!c.analytics : false;
       ckMarketing.checked = c ? !!c.marketing : false;
     }
 
-    // Ações
     cookieAccept?.addEventListener("click", () => {
       const consent = { necessary: true, prefs: true, analytics: true, marketing: true, date: new Date().toISOString() };
       setConsent(consent);
@@ -1019,7 +1079,6 @@
       cookieSave.click();
     });
 
-    // Tema toggle (salva só se prefs permitido)
     function toggleTheme(){
       const current = document.documentElement.getAttribute("data-theme") || "light";
       const next = current === "dark" ? "light" : "dark";
@@ -1029,11 +1088,9 @@
       if(consent?.prefs){
         localStorage.setItem("theme", next);
       }else{
-        // sem consentimento de prefs: não persiste
         localStorage.removeItem("theme");
       }
     }
-
     themeBtn?.addEventListener("click", toggleTheme);
 
     // Reveal
@@ -1047,27 +1104,19 @@
     }, { threshold: 0.12 });
     $$(".reveal").forEach(el => io.observe(el));
 
-    // Inicialização
+    // Inicialização cookies
     const existing = getConsent();
     if(existing){
       applyConsent(existing);
     }else{
-      // se não decidiu ainda, mostra banner
       showCookieBar();
-      // aplica consent "mínimo" na prática
       applyConsent({ necessary: true, prefs: false, analytics: false, marketing: false });
     }
 
-    // Bind links WhatsApp (final)
-    ["ctaTop","ctaHero","ctaSide","ctaMid","fabWhats"].forEach(id => {
-      const el = document.getElementById(id);
-      if(el) el.href = waUrl();
-    });
-
     // Aviso leve
     setTimeout(() => {
-      showToast("Atendimento", "Clique em “Chamar no WhatsApp” para iniciar.");
-    }, 800);
+      showToast("Portal H Costa", "Use os atalhos rápidos ou clique em “Falar no WhatsApp”.");
+    }, 850);
 
     // ESC fecha modal
     document.addEventListener("keydown", (e) => {
