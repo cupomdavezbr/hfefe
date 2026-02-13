@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#E65F52" />
+  <meta name="description" content="Atendimento rápido e humanizado. Clique e fale no WhatsApp agora." />
+  <title>Portal | Atendimento via WhatsApp</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary:#E65F52;
+      --primary2:#FF7A66;
+      --wine:#4A1022;
+      --ink:#0F172A;
+      --muted:#475569;
+      --bg:#FFF8F7;
+      --card: rgba(255,255,255,.80);
+      --stroke: rgba(15,23,42,.10);
+      --shadow: 0 18px 50px rgba(15,23,42,.14);
+      --shadow2: 0 10px 30px rgba(15,23,42,.10);
+      --radius: 22px;
+      --radius2: 16px;
+      --container: 1080px;
+      --focus: 0 0 0 4px rgba(230,95,82,.28);
+      --speed: 260ms;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    [data-theme="dark"]{
+      --bg:#07060A;
+      --ink:#F8FAFC;
+      --muted: rgba(248,250,252,.72);
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(248,250,252,.14);
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.30);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 12% 0%, rgba(230,95,82,.18), transparent 55%),
+        radial-gradient(900px 520px at 90% 10%, rgba(74,16,34,.20), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0));
+      background-color: var(--bg);
+      line-height:1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x:hidden;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    button{ font:inherit; cursor:pointer; }
+    .no-js .js-only{ display:none !important; }
+    :focus-visible{ outline:none; box-shadow: var(--focus); border-radius: 12px; }
+
+    .container{ width:min(var(--container), calc(100% - 40px)); margin:0 auto; }
+    .header{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: color-mix(in oklab, var(--bg) 75%, transparent);
+      border-bottom: 1px solid var(--stroke);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 190px;
+    }
+
+    /* Logo com P */
+    .logo{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.40), transparent 45%),
+        linear-gradient(135deg, var(--wine), var(--primary));
+      box-shadow: 0 10px 30px rgba(74,16,34,.25);
+      position: relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      font-family: Manrope, Inter, sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      font-size: 18px;
+      text-shadow: 0 8px 24px rgba(0,0,0,.22);
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 55%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .logo span{ position: relative; z-index: 1; }
+
+    .brand strong{
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+      font-size: 14px;
+      line-height: 1.1;
+      display:block;
+    }
+    .brand span{
+      font-size: 12px;
+      color: var(--muted);
+      display:block;
+      margin-top: 2px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow2);
+      color: var(--ink);
+      font-weight: 650;
+      font-size: 13px;
+      transition: transform var(--speed) var(--ease), box-shadow var(--speed) var(--ease), border-color var(--speed) var(--ease);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow); border-color: color-mix(in oklab, var(--stroke) 40%, var(--primary)); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+
+    .btn.primary{
+      border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--stroke));
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 50%),
+        linear-gradient(135deg, var(--primary), color-mix(in oklab, var(--primary) 70%, var(--wine)));
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(230,95,82,.25);
+    }
+
+    .icon-btn{ width: 44px; height: 44px; padding: 0; border-radius: 14px; }
+
+    .hero{
+      padding: clamp(34px, 6vw, 72px) 0 clamp(26px, 4.8vw, 50px);
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      border-radius: 999px;
+      box-shadow: var(--shadow2);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .kicker .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--primary2), var(--primary));
+      box-shadow: 0 0 0 4px rgba(230,95,82,.18);
+    }
+
+    .hero-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    h1{
+      font-family: Manrope, Inter, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: clamp(30px, 4.8vw, 52px);
+      line-height: 1.05;
+      margin: 12px 0 12px;
+    }
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: clamp(15px, 1.55vw, 18px);
+      max-width: 58ch;
+    }
+    .cta-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .side-card{
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .side-pad{ padding: 16px; display:grid; gap: 10px; }
+    .mini{
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+      padding: 12px;
+    }
+    .mini b{
+      display:block;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.02em;
+    }
+    .mini span{ color: var(--muted); font-size: 13px; }
+
+    .section{ padding: clamp(28px, 4.5vw, 54px) 0; }
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 12px;
+    }
+    .tile{
+      border-radius: var(--radius2);
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow2);
+      padding: 14px;
+    }
+    .tile strong{
+      display:block;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+    .tile p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .how{
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      background:
+        radial-gradient(850px 260px at 10% 30%, rgba(230,95,82,.22), transparent 55%),
+        radial-gradient(900px 280px at 95% 0%, rgba(74,16,34,.22), transparent 55%),
+        linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .how h2{
+      font-family: Manrope, Inter, sans-serif;
+      margin:0;
+      letter-spacing:-0.02em;
+      font-size: clamp(18px, 2.6vw, 24px);
+    }
+    .how p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 62ch;
+    }
+
+    details{
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding: 12px 14px;
+      font-weight: 750;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details > div{ padding: 0 14px 14px; color: var(--muted); font-size: 13px; }
+
+    footer{
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--stroke);
+      background: color-mix(in oklab, var(--bg) 86%, transparent);
+    }
+    .foot{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .foot small{ color: var(--muted); }
+    .foot a{ text-decoration: underline; text-underline-offset: 3px; color: color-mix(in oklab, var(--ink) 70%, var(--primary)); }
+
+    .float{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+    }
+    .fab{
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      border: 1px solid color-mix(in oklab, var(--primary) 55%, var(--stroke));
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, var(--primary), color-mix(in oklab, var(--primary) 72%, var(--wine)));
+      box-shadow: 0 18px 50px rgba(230,95,82,.25);
+      display:grid;
+      place-items:center;
+      color:#fff;
+      transition: transform var(--speed) var(--ease);
+    }
+    .fab:hover{ transform: translateY(-2px); }
+    .fab svg{ width: 24px; height: 24px; fill: #fff; }
+
+    .toast{
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 70;
+      max-width: 520px;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow);
+      padding: 12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      transform: translateY(18px);
+      opacity: 0;
+      pointer-events:none;
+      transition: transform var(--speed) var(--ease), opacity var(--speed) var(--ease);
+    }
+    .toast.show{ transform: translateY(0); opacity:1; pointer-events:auto; }
+    .toast .ico{
+      width: 38px;height: 38px;border-radius: 14px;
+      background: linear-gradient(135deg, var(--wine), var(--primary));
+      display:grid; place-items:center;
+      color:#fff; font-weight:900;
+      flex:0 0 auto;
+    }
+    .toast b{ display:block; font-size: 13px; margin-bottom: 2px; }
+    .toast p{ margin:0; font-size: 13px; color: var(--muted); }
+    .toast .x{
+      margin-left:auto;
+      width: 38px;height: 38px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.06);
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      color: var(--muted);
+    }
+
+    .reveal{ opacity:0; transform: translateY(10px); transition: opacity 520ms var(--ease), transform 520ms var(--ease); }
+    .reveal.in{ opacity:1; transform: translateY(0); }
+
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       COOKIES (LGPD) - Banner + Modal
+       ========================= */
+    .cookie-bar{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow);
+      padding: 12px;
+      display:none;
+    }
+    .cookie-bar.show{ display:block; }
+    .cookie-row{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .cookie-text{
+      min-width: 240px;
+      flex: 1 1 320px;
+    }
+    .cookie-text b{
+      display:block;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+    .cookie-text p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .cookie-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content: flex-end;
+    }
+    .btn.ghost{
+      background: transparent;
+    }
+    .cookie-link{
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      color: color-mix(in oklab, var(--ink) 70%, var(--primary));
+    }
+
+    .cookie-modal{
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display:none;
+      background: rgba(0,0,0,.38);
+      backdrop-filter: blur(6px);
+      padding: 12px;
+    }
+    .cookie-modal.show{ display:block; }
+    .cookie-panel{
+      max-width: 720px;
+      margin: 0 auto;
+      border-radius: 22px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--bg), color-mix(in oklab, var(--bg) 75%, var(--wine)));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .cookie-head{
+      padding: 14px;
+      border-bottom: 1px solid var(--stroke);
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .cookie-head strong{
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .cookie-body{
+      padding: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .cookie-card{
+      border-radius: 18px;
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: var(--shadow2);
+      padding: 12px;
+    }
+    .cookie-card .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cookie-card b{
+      display:block;
+      margin:0 0 4px;
+      font-family: Manrope, Inter, sans-serif;
+      letter-spacing: -0.01em;
+    }
+    .cookie-card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .switch{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+    .switch input{
+      width: 44px;
+      height: 26px;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.10);
+      position: relative;
+      cursor: pointer;
+      transition: background var(--speed) var(--ease);
+    }
+    .switch input:before{
+      content:"";
+      position:absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,.18);
+      transition: transform var(--speed) var(--ease);
+    }
+    .switch input:checked{
+      background: rgba(230,95,82,.30);
+      border-color: color-mix(in oklab, var(--primary) 55%, var(--stroke));
+    }
+    .switch input:checked:before{
+      transform: translateX(18px);
+    }
+    .cookie-foot{
+      padding: 14px;
+      border-top: 1px solid var(--stroke);
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="nav" aria-label="Topo">
+        <a class="brand" href="#inicio" aria-label="Início">
+          <div class="logo" aria-hidden="true"><span>P</span></div>
+          <div>
+            <strong id="brandName">Portal Atendimento</strong>
+            <span>Atendimento via WhatsApp</span>
+          </div>
+        </a>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <button class="btn icon-btn js-only" id="themeBtn" type="button" aria-label="Alternar tema" title="Alternar tema">
+            <svg id="themeIcon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path fill="currentColor" d="M12 18a6 6 0 0 1-6-6c0-2.8 2-5.1 4.7-5.8.5-.1.9.4.7.9a4.5 4.5 0 0 0 5.5 6.1c.5-.2 1 .2.9.7A6 6 0 0 1 12 18Z"/>
+            </svg>
+          </button>
+
+          <a class="btn primary" id="ctaTop" href="#" target="_blank" rel="noopener">
+            Falar no WhatsApp
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path fill="currentColor" d="M13 5h6v6h-2V8.4l-7.3 7.3-1.4-1.4 7.3-7.3H13V5Z"/>
+              <path fill="currentColor" d="M5 7a2 2 0 0 1 2-2h4v2H7v10h10v-4h2v4a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7Z"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container">
+        <span class="kicker reveal"><span class="dot" aria-hidden="true"></span> clique e resolva agora</span>
+
+        <div class="hero-grid">
+          <div class="reveal">
+            <h1>Atendimento rápido, direto e humanizado</h1>
+            <p class="lead">
+              Sem formulário longo. Sem enrolação. Você chama no WhatsApp e a gente te direciona imediatamente.
+            </p>
+
+            <div class="cta-row">
+              <a class="btn primary" id="ctaHero" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+              <button class="btn js-only" id="copyMsg" type="button">Copiar mensagem</button>
+            </div>
+
+            <div class="section" style="padding-bottom:0;">
+              <div class="grid3">
+                <div class="tile">
+                  <strong>Resposta rápida</strong>
+                  <p>Você chama e já recebe a orientação inicial.</p>
+                </div>
+                <div class="tile">
+                  <strong>Processo simples</strong>
+                  <p>Somente o essencial, do jeito certo.</p>
+                </div>
+                <div class="tile">
+                  <strong>Atendimento humano</strong>
+                  <p>Sem robô. Sem confusão. Sem “copiar e colar”.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="side-card reveal" aria-label="Resumo rápido">
+            <div class="side-pad">
+              <div class="mini">
+                <b>Como funciona</b>
+                <span>3 passos e você já começa a resolver.</span>
+              </div>
+              <div class="mini">
+                <b>1) Você chama</b>
+                <span>WhatsApp com uma frase simples.</span>
+              </div>
+              <div class="mini">
+                <b>2) Nós entendemos</b>
+                <span>Triagem e direcionamento.</span>
+              </div>
+              <div class="mini">
+                <b>3) Você segue o caminho</b>
+                <span>Com orientação objetiva.</span>
+              </div>
+              <a class="btn primary" id="ctaSide" href="#" target="_blank" rel="noopener">Quero atendimento</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="how reveal">
+          <div>
+            <h2>Pronto pra falar agora?</h2>
+            <p>É só clicar no botão e mandar a mensagem. A gente responde e direciona seu atendimento.</p>
+          </div>
+          <div class="cta-row">
+            <a class="btn primary" id="ctaMid" href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="btn" href="#duvidas">Dúvidas rápidas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="duvidas">
+      <div class="container">
+        <div style="display:grid; gap:10px;" class="reveal">
+          <details>
+            <summary>O que eu preciso mandar no WhatsApp?</summary>
+            <div>Seu nome e um resumo do que precisa. Se precisar de algo específico, a gente pede depois.</div>
+          </details>
+          <details>
+            <summary>Vocês respondem rápido?</summary>
+            <div>Geralmente sim. Se estiver em horário comercial, costuma ser bem ágil.</div>
+          </details>
+          <details>
+            <summary>Posso começar agora?</summary>
+            <div>Sim. Clique em “Chamar no WhatsApp” e já vai com a mensagem pronta.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container foot">
+        <div class="brand" style="min-width:auto;">
+          <div class="logo" aria-hidden="true" style="width:38px;height:38px;"><span>P</span></div>
+          <div>
+            <strong>Portal Atendimento</strong>
+            <span style="color:var(--muted); font-size:12px;">Atendimento via WhatsApp</span>
+          </div>
+        </div>
+        <small>
+          © <span id="year"></span> •
+          <a href="politica-de-privacidade.html" class="cookie-link">Política de Privacidade</a> •
+          <button class="btn" id="openCookies" type="button" style="padding:8px 10px; border-radius:999px;">Cookies</button>
+        </small>
+      </div>
+    </footer>
+  </main>
+
+  <div class="float js-only" aria-label="WhatsApp flutuante">
+    <a class="fab" id="fabWhats" href="#" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 12a8 8 0 0 1-12.8 6.4L4 19l.7-3.2A8 8 0 1 1 20 12Zm-4.4 2.5c-.2-.1-1.2-.6-1.4-.6-.2-.1-.4-.1-.6.1-.2.2-.7.6-.8.7-.2.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.6-1-1.4-1.1-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4s0-.3-.1-.4c0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.4 3.8 3.3.5.2 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="toast js-only" id="toast" role="status" aria-live="polite" aria-atomic="true">
+    <div class="ico" aria-hidden="true">✓</div>
+    <div>
+      <b id="toastTitle">Pronto</b>
+      <p id="toastMsg">Ação concluída.</p>
+    </div>
+    <button class="x" id="toastClose" aria-label="Fechar aviso" type="button">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path fill="currentColor" d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- =========================
+       COOKIES: Banner + Preferências
+       ========================= -->
+  <div class="cookie-bar js-only" id="cookieBar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-row">
+      <div class="cookie-text">
+        <b>Cookies 🍪</b>
+        <p>
+          Usamos cookies para melhorar sua experiência e entender o que funciona melhor.
+          Você pode aceitar, recusar ou ajustar suas preferências.
+          <a class="cookie-link" href="politica-de-privacidade.html">Política de Privacidade</a>.
+        </p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn ghost" id="cookieReject" type="button">Recusar</button>
+        <button class="btn" id="cookiePrefs" type="button">Preferências</button>
+        <button class="btn primary" id="cookieAccept" type="button">Aceitar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cookie-modal js-only" id="cookieModal" aria-hidden="true">
+    <div class="cookie-panel" role="dialog" aria-modal="true" aria-label="Preferências de cookies">
+      <div class="cookie-head">
+        <div>
+          <strong>Preferências de Cookies</strong>
+          <div style="font-size:12px;color:var(--muted); margin-top:2px;">Escolha o que deseja permitir.</div>
+        </div>
+        <button class="btn icon-btn" id="cookieClose" type="button" aria-label="Fechar">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4Z"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="cookie-body">
+        <div class="cookie-card">
+          <div class="top">
+            <div>
+              <b>Necessários</b>
+              <p>Essenciais para o site funcionar (não podem ser desativados).</p>
+            </div>
+            <label class="switch" title="Sempre ativo">
+              <input type="checkbox" checked disabled />
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="top">
+            <div>
+              <b>Preferências</b>
+              <p>Guarda escolhas como tema (claro/escuro) e idioma.</p>
+            </div>
+            <label class="switch">
+              <input id="ckPrefs" type="checkbox" checked />
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="top">
+            <div>
+              <b>Analíticos</b>
+              <p>Ajuda a medir visitas e cliques, para melhorar o site.</p>
+            </div>
+            <label class="switch">
+              <input id="ckAnalytics" type="checkbox" />
+            </label>
+          </div>
+        </div>
+
+        <div class="cookie-card">
+          <div class="top">
+            <div>
+              <b>Marketing</b>
+              <p>Ajuda a exibir anúncios e campanhas mais relevantes.</p>
+            </div>
+            <label class="switch">
+              <input id="ckMarketing" type="checkbox" />
+            </label>
+          </div>
+        </div>
+
+        <div style="font-size:12px;color:var(--muted);">
+          Você pode alterar isso quando quiser clicando em “Cookies” no rodapé.
+        </div>
+      </div>
+
+      <div class="cookie-foot">
+        <button class="btn" id="cookieSave" type="button">Salvar preferências</button>
+        <button class="btn primary" id="cookieAcceptAll" type="button">Aceitar tudo</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ====== EDITAR AQUI ======
+    const BRAND_NAME = "Portal Atendimento";
+    const WHATSAPP_NUMBER = "5511912345678"; // DDI+DDD+número (só números)
+    const DEFAULT_MESSAGE = "Olá! Vim pelo site e gostaria de atendimento. Pode me ajudar, por favor?";
+
+    // ===== Helpers =====
+    const $ = (q, el=document) => el.querySelector(q);
+    const $$ = (q, el=document) => [...el.querySelectorAll(q)];
+    const waUrl = (msg=DEFAULT_MESSAGE) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+
+    document.documentElement.classList.remove("no-js");
+    $("#year").textContent = new Date().getFullYear();
+    $("#brandName").textContent = BRAND_NAME;
+
+    // ===== Bind links WhatsApp =====
+    ["ctaTop","ctaHero","ctaSide","ctaMid","fabWhats"].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.href = waUrl();
+    });
+
+    // ===== Toast =====
+    const toast = $("#toast");
+    const toastTitle = $("#toastTitle");
+    const toastMsg = $("#toastMsg");
+    const toastClose = $("#toastClose");
+    let tmr = null;
+
+    function showToast(title, msg){
+      if(!toast) return;
+      toastTitle.textContent = title;
+      toastMsg.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(tmr);
+      tmr = setTimeout(() => toast.classList.remove("show"), 3200);
+    }
+    toastClose?.addEventListener("click", () => toast.classList.remove("show"));
+
+    // ===== Copy message =====
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        return true;
+      }catch{
+        const t = document.createElement("textarea");
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        const ok = document.execCommand("copy");
+        t.remove();
+        return ok;
+      }
+    }
+
+    $("#copyMsg")?.addEventListener("click", async () => {
+      const ok = await copyText(DEFAULT_MESSAGE);
+      showToast(ok ? "Copiado" : "Falhou", ok ? "Mensagem copiada. Agora é só colar no WhatsApp." : "Seu navegador bloqueou a cópia.");
+    });
+
+    // ===== Theme (respeita consentimento de Preferências) =====
+    const themeBtn = $("#themeBtn");
+    const themeIcon = $("#themeIcon");
+
+    function setTheme(next){
+      document.documentElement.setAttribute("data-theme", next);
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if(metaTheme) metaTheme.setAttribute("content", next === "dark" ? "#2A0B14" : "#E65F52");
+      if(themeIcon){
+        themeIcon.innerHTML = next === "dark"
+          ? '<path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v1.2a1 1 0 0 1-2 0V4a1 1 0 0 1 1-1Zm0 16.8a1 1 0 0 1 1 1V22a1 1 0 0 1-2 0v-1.2a1 1 0 0 1 1-1ZM4 11a1 1 0 0 1 1 1v0a1 1 0 0 1-2 0v0a1 1 0 0 1 1-1Zm16 0a1 1 0 0 1 1 1v0a1 1 0 0 1-2 0v0a1 1 0 0 1 1-1ZM6.2 6.2a1 1 0 0 1 1.4 0l.85.85a1 1 0 1 1-1.4 1.4l-.85-.85a1 1 0 0 1 0-1.4Zm10.35 10.35a1 1 0 0 1 1.4 0l.85.85a1 1 0 1 1-1.4 1.4l-.85-.85a1 1 0 0 1 0-1.4ZM17.8 6.2a1 1 0 0 1 0 1.4l-.85.85a1 1 0 1 1-1.4-1.4l.85-.85a1 1 0 0 1 1.4 0ZM7.45 16.55a1 1 0 0 1 0 1.4l-.85.85a1 1 0 1 1-1.4-1.4l.85-.85a1 1 0 0 1 1.4 0ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/>'
+          : '<path fill="currentColor" d="M12 18a6 6 0 0 1-6-6c0-2.8 2-5.1 4.7-5.8.5-.1.9.4.7.9a4.5 4.5 0 0 0 5.5 6.1c.5-.2 1 .2.9.7A6 6 0 0 1 12 18Z"/>';
+      }
+    }
+
+    // =========================
+    // Cookies (LGPD) - simples
+    // =========================
+    const COOKIE_KEY = "cookie_consent_v1";
+
+    function getConsent(){
+      try{
+        const raw = localStorage.getItem(COOKIE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      }catch{
+        return null;
+      }
+    }
+
+    function setConsent(consent){
+      localStorage.setItem(COOKIE_KEY, JSON.stringify(consent));
+    }
+
+    function applyConsent(consent){
+      // Preferências: pode salvar tema
+      if(consent?.prefs){
+        const savedTheme = localStorage.getItem("theme");
+        if(savedTheme) setTheme(savedTheme);
+      }else{
+        // sem prefs, não persiste tema; mantém o atual sem salvar
+      }
+
+      // Analíticos/Marketing: aqui você integraria scripts (GA, pixel etc.)
+      // Exemplo de "flag" para seu código:
+      window.__CONSENT__ = {
+        necessary: true,
+        prefs: !!consent?.prefs,
+        analytics: !!consent?.analytics,
+        marketing: !!consent?.marketing
+      };
+    }
+
+    function hasDecision(){
+      return !!getConsent();
+    }
+
+    // Banner/modal
+    const cookieBar = $("#cookieBar");
+    const cookieModal = $("#cookieModal");
+    const openCookies = $("#openCookies");
+    const cookieAccept = $("#cookieAccept");
+    const cookieReject = $("#cookieReject");
+    const cookiePrefs = $("#cookiePrefs");
+    const cookieClose = $("#cookieClose");
+    const cookieSave = $("#cookieSave");
+    const cookieAcceptAll = $("#cookieAcceptAll");
+
+    const ckPrefs = $("#ckPrefs");
+    const ckAnalytics = $("#ckAnalytics");
+    const ckMarketing = $("#ckMarketing");
+
+    function showCookieBar(){ cookieBar?.classList.add("show"); }
+    function hideCookieBar(){ cookieBar?.classList.remove("show"); }
+
+    function openCookieModal(){
+      if(!cookieModal) return;
+      cookieModal.classList.add("show");
+      cookieModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeCookieModal(){
+      if(!cookieModal) return;
+      cookieModal.classList.remove("show");
+      cookieModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function syncModalWithConsent(){
+      const c = getConsent();
+      ckPrefs.checked = c ? !!c.prefs : true;      // padrão: prefs ON
+      ckAnalytics.checked = c ? !!c.analytics : false;
+      ckMarketing.checked = c ? !!c.marketing : false;
+    }
+
+    // Ações
+    cookieAccept?.addEventListener("click", () => {
+      const consent = { necessary: true, prefs: true, analytics: true, marketing: true, date: new Date().toISOString() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideCookieBar();
+      showToast("Cookies", "Você aceitou todos os cookies.");
+    });
+
+    cookieReject?.addEventListener("click", () => {
+      const consent = { necessary: true, prefs: false, analytics: false, marketing: false, date: new Date().toISOString() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideCookieBar();
+      showToast("Cookies", "Você recusou cookies não essenciais.");
+    });
+
+    cookiePrefs?.addEventListener("click", () => {
+      syncModalWithConsent();
+      openCookieModal();
+    });
+
+    openCookies?.addEventListener("click", () => {
+      syncModalWithConsent();
+      openCookieModal();
+    });
+
+    cookieClose?.addEventListener("click", closeCookieModal);
+    cookieModal?.addEventListener("click", (e) => { if(e.target === cookieModal) closeCookieModal(); });
+
+    cookieSave?.addEventListener("click", () => {
+      const consent = {
+        necessary: true,
+        prefs: !!ckPrefs.checked,
+        analytics: !!ckAnalytics.checked,
+        marketing: !!ckMarketing.checked,
+        date: new Date().toISOString()
+      };
+      setConsent(consent);
+      applyConsent(consent);
+      closeCookieModal();
+      hideCookieBar();
+      showToast("Cookies", "Preferências salvas.");
+    });
+
+    cookieAcceptAll?.addEventListener("click", () => {
+      ckPrefs.checked = true;
+      ckAnalytics.checked = true;
+      ckMarketing.checked = true;
+      cookieSave.click();
+    });
+
+    // Tema toggle (salva só se prefs permitido)
+    function toggleTheme(){
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      const next = current === "dark" ? "light" : "dark";
+      setTheme(next);
+
+      const consent = getConsent();
+      if(consent?.prefs){
+        localStorage.setItem("theme", next);
+      }else{
+        // sem consentimento de prefs: não persiste
+        localStorage.removeItem("theme");
+      }
+    }
+
+    themeBtn?.addEventListener("click", toggleTheme);
+
+    // Reveal
+    const io = new IntersectionObserver((entries) => {
+      for(const ent of entries){
+        if(ent.isIntersecting){
+          ent.target.classList.add("in");
+          io.unobserve(ent.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    $$(".reveal").forEach(el => io.observe(el));
+
+    // Inicialização
+    const existing = getConsent();
+    if(existing){
+      applyConsent(existing);
+    }else{
+      // se não decidiu ainda, mostra banner
+      showCookieBar();
+      // aplica consent "mínimo" na prática
+      applyConsent({ necessary: true, prefs: false, analytics: false, marketing: false });
+    }
+
+    // Bind links WhatsApp (final)
+    ["ctaTop","ctaHero","ctaSide","ctaMid","fabWhats"].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.href = waUrl();
+    });
+
+    // Aviso leve
+    setTimeout(() => {
+      showToast("Atendimento", "Clique em “Chamar no WhatsApp” para iniciar.");
+    }, 800);
+
+    // ESC fecha modal
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" && cookieModal?.classList.contains("show")){
+        closeCookieModal();
+      }
+    });
+  </script>
+</body>
+</html>
